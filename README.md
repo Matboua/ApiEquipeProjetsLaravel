@@ -64,15 +64,18 @@ http://localhost:8000/api/documentation
 
 ### Swagger Documentation Start URL
 
-![Swagger Documentation Start URL](https://github.com/yourusername/ApiEquipeProjets/blob/main/screenshots/first.png)
+![Swagger Documentation Start URL](https://github.com/matboua/ApiEquipeProjetsLaravel
+/blob/main/screenshots/first.png)
 
 ### List of Projects and Team Members Actions
 
-![List of Projects and Team Members Actions](https://github.com/yourusername/ApiEquipeProjets/blob/main/screenshots/second.png)
+![List of Projects and Team Members Actions](https://github.com/matboua/ApiEquipeProjetsLaravel
+/blob/main/screenshots/second.png)
 
 ### Try Out Get in Team Members
 
-![Try Out Get in Team Members](https://github.com/yourusername/ApiEquipeProjets/blob/main/screenshots/third.png)
+![Try Out Get in Team Members](https://github.com/matboua/ApiEquipeProjetsLaravel
+/blob/main/screenshots/third.png)
 
 ## Contributing
 
