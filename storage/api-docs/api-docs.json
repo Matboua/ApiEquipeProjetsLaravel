@@ -1,0 +1,350 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Equipe Projets",
+        "description": "Documentation for the Equipe Projets API built with Laravel",
+        "contact": {
+            "email": "support@yourdomain.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "Local API Server"
+        }
+    ],
+    "paths": {
+        "/personnes": {
+            "get": {
+                "tags": ["Personnes"],
+                "summary": "Get list of all personnes",
+                "operationId": "a98e7cdd225a906ffd217cba4430558b",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Personnes"],
+                "summary": "Create a new personne",
+                "operationId": "37c59a8f658db88ec1950a749bfb83a6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": ["nom", "prenom"],
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "prenom": {
+                                        "type": "string"
+                                    },
+                                    "telephone": {
+                                        "type": "string"
+                                    },
+                                    "ville": {
+                                        "type": "string"
+                                    },
+                                    "date_fin": {
+                                        "type": "string",
+                                        "format": "date"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Personne created"
+                    }
+                }
+            }
+        },
+        "/personnes/{id}": {
+            "get": {
+                "tags": ["Personnes"],
+                "summary": "Get a specific personne by ID",
+                "operationId": "e0a8cbd54a6a341687fe44c01f1c938f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Personne not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Personnes"],
+                "summary": "Update a specific personne by ID",
+                "operationId": "12bceb6a49b10be6fc7329efb78290f7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "prenom": {
+                                        "type": "string"
+                                    },
+                                    "telephone": {
+                                        "type": "string"
+                                    },
+                                    "ville": {
+                                        "type": "string"
+                                    },
+                                    "date_fin": {
+                                        "type": "string",
+                                        "format": "date"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Personne updated"
+                    },
+                    "404": {
+                        "description": "Personne not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Personnes"],
+                "summary": "Delete a specific personne by ID",
+                "operationId": "2687ddb9d8cb54ea6137605c582db2de",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Personne deleted"
+                    },
+                    "404": {
+                        "description": "Personne not found"
+                    }
+                }
+            }
+        },
+        "/personnes/{id}/projets": {
+            "get": {
+                "tags": ["Personnes"],
+                "summary": "Get all projets for a specific personne",
+                "operationId": "323455162bb437c227e4621dc8d89d1a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of projets"
+                    },
+                    "404": {
+                        "description": "Personne not found"
+                    }
+                }
+            }
+        },
+        "/api/projets": {
+            "get": {
+                "tags": ["Projets"],
+                "summary": "Get all projects",
+                "operationId": "cdcc7d8fa82f1533384f69fd6bf52377",
+                "responses": {
+                    "200": {
+                        "description": "List of all projects"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Projets"],
+                "summary": "Create a new project",
+                "operationId": "b09251428bbf1995144e555a6db447ae",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": ["intitule", "date_debut", "duree"],
+                                "properties": {
+                                    "intitule": {
+                                        "type": "string",
+                                        "example": "New Project"
+                                    },
+                                    "date_debut": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-03-01"
+                                    },
+                                    "duree": {
+                                        "type": "integer",
+                                        "example": 30
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Project created successfully"
+                    }
+                }
+            }
+        },
+        "/api/projets/{id}": {
+            "get": {
+                "tags": ["Projets"],
+                "summary": "Get a specific project by ID",
+                "operationId": "c12153e49ba7b2785975d94224588a62",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the project",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Project data"
+                    },
+                    "404": {
+                        "description": "Project not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Projets"],
+                "summary": "Update a project",
+                "operationId": "f93c637a8568fe1980bc6bde69679dca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the project to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "intitule": {
+                                        "type": "string",
+                                        "example": "Updated Project"
+                                    },
+                                    "date_debut": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-03-05"
+                                    },
+                                    "duree": {
+                                        "type": "integer",
+                                        "example": 45
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Project updated successfully"
+                    },
+                    "404": {
+                        "description": "Project not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Projets"],
+                "summary": "Delete a project",
+                "operationId": "d880737fcbd65754b670b8e357c18c12",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the project to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Project deleted successfully"
+                    },
+                    "404": {
+                        "description": "Project not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Personnes",
+            "description": "Operations related to Personnes"
+        },
+        {
+            "name": "Projets",
+            "description": "Projets"
+        }
+    ]
+}
